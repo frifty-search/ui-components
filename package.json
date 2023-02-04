@@ -28,15 +28,19 @@
     ],
     "exports": {
         ".": {
-            "import": "./dist/ui-components.es.js",
-            "require": "./dist/ui-components.umd.js"
+            "import": "./dist/@frifty-search/ui-components.es.js",
+            "require": "./dist/@frifty-search/ui-components.umd.js"
         },
         "./dist/style.css": "./dist/style.css"
     },
-    "main": "./dist/ui-components.umd.js",
-    "module": "./dist/ui-components.es.js",
+    "main": "./dist/@frifty-search/ui-components.umd.js",
+    "module": "./dist/@frifty-search/ui-components.es.js",
     "types": "./dist/index.d.ts",
     "devDependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/icons-material": "^5.11.0",
+        "@mui/material": "^5.11.7",
         "@types/node": "^18.7.6",
         "@types/react": "^18.0.27",
         "@types/react-dom": "^18.0.10",

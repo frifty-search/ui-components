@@ -23,8 +23,8 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "react-vite-library": [
-        "src/component/index.ts"
+      "ui-components": [
+        "src/components/index.ts"
       ]
     },
     "typeRoots": [

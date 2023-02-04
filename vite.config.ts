@@ -1,11 +1,11 @@
-import react from '@vitejs/plugin-react-swc'
-import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
-import EsLint from 'vite-plugin-linter'
-import tsConfigPaths from 'vite-tsconfig-paths'
-const { EsLinter, linterPlugin } = EsLint
-import * as packageJson from './package.json'
+import react from '@vitejs/plugin-react-swc';
+import { resolve } from 'node:path';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import EsLint from 'vite-plugin-linter';
+import tsConfigPaths from 'vite-tsconfig-paths';
+const { EsLinter, linterPlugin } = EsLint;
+import * as packageJson from './package.json';
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
     plugins: [
@@ -16,18 +16,18 @@ export default defineConfig((configEnv) => ({
             linters: [new EsLinter({ configEnv })],
         }),
         dts({
-            include: ['src/component/'],
+            include: ['src/components/'],
         }),
     ],
     build: {
         lib: {
-            entry: resolve('src', 'component/index.ts'),
-            name: 'UI-Components',
+            entry: resolve('src', 'components/index.ts'),
+            name: '@frifty-search/ui-components',
             formats: ['es', 'umd'],
-            fileName: (format) => `ui-components.${format}.js`,
+            fileName: (format) => `@frifty-search/ui-components.${format}.js`,
         },
         rollupOptions: {
             external: [...Object.keys(packageJson.peerDependencies)],
         },
     },
-}))
+}));
