@@ -1,33 +1,46 @@
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import EsLint from 'vite-plugin-linter';
 import tsConfigPaths from 'vite-tsconfig-paths';
 const { EsLinter, linterPlugin } = EsLint;
-import * as packageJson from './package.json';
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
     plugins: [
         react(),
         tsConfigPaths(),
         linterPlugin({
-            include: ['./src}/**/*.{ts,tsx}'],
+            include: ['./package/src}/**/*.{ts,tsx}'],
             linters: [new EsLinter({ configEnv })],
         }),
         dts({
-            include: ['src/components/'],
+            include: ['package/src/components/'],
         }),
     ],
     build: {
         lib: {
-            entry: resolve('src', 'components/index.ts'),
-            name: '@frifty-search/ui-components',
+            entry: resolve('package', 'src/components/index.ts'),
+            name: '@friftysearch/ui-components',
             formats: ['es', 'umd'],
-            fileName: (format) => `@frifty-search/ui-components.${format}.js`,
+            fileName: (format) => `@friftysearch/ui-components/index.${format}.js`,
         },
         rollupOptions: {
-            external: [...Object.keys(packageJson.peerDependencies)],
+            external: ['react', 'react-dom', '@mui/material', '@mui/icons-material'],
+            output: {
+                globals: {
+                    react: 'React',
+                    'react-dom': 'ReactDOM',
+                    '@mui/material': '@mui/material',
+                    '@mui/icons-material': '@mui/icons-material',
+                    '@mui/x-date-pickers': '@mui/x-date-pickers',
+                    dayjs: 'dayjs',
+                    '@mui/styled-engine': '@mui/styled-engine',
+                    '@emotion/react': '@emotion/react',
+                },
+            },
         },
+        sourcemap: true,
+        emptyOutDir: true,
     },
 }));

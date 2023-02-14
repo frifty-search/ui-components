@@ -1,5 +1,5 @@
 {
-    "name": "@frifty-search/ui-components",
+    "name": "@friftysearch/ui-components",
     "private": false,
     "version": "1.0.0",
     "type": "module",
@@ -28,25 +28,27 @@
     ],
     "exports": {
         ".": {
-            "import": "./dist/@frifty-search/ui-components.es.js",
-            "require": "./dist/@frifty-search/ui-components.umd.js"
+            "import": "./dist/@friftysearch/ui-components/index.es.js",
+            "require": "./dist/@friftysearch/ui-components/index.umd.js"
         },
         "./dist/style.css": "./dist/style.css"
     },
-    "main": "./dist/@frifty-search/ui-components.umd.js",
-    "module": "./dist/@frifty-search/ui-components.es.js",
+    "main": "./dist/@friftysearch/ui-components/index.umd.js",
+    "module": "./dist/@friftysearch/ui-components/index.es.js",
     "types": "./dist/index.d.ts",
     "devDependencies": {
-        "@emotion/react": "^11.10.5",
-        "@emotion/styled": "^11.10.5",
         "@mui/icons-material": "^5.11.0",
-        "@mui/material": "^5.11.7",
+        "@mui/material": "^5.11.8",
+        "@mui/x-date-pickers": "^5.0.17",
         "@types/node": "^18.7.6",
         "@types/react": "^18.0.27",
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
         "@types/react-dom": "^18.0.10",
         "@typescript-eslint/eslint-plugin": "^5.34.0",
         "@typescript-eslint/parser": "^5.34.0",
-        "@vitejs/plugin-react-swc": "^3.1.0",
+        "@vitejs/plugin-react": "^3.1.0",
+        "dayjs": "^1.11.7",
         "eslint": "^8.2.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.25.3",
@@ -67,6 +69,12 @@
         "vite-tsconfig-paths": "^3.5.0"
     },
     "peerDependencies": {
+        "@emotion/react": ">= 5.x",
+        "@mui/icons-material": ">= 5.x",
+        "@mui/material": ">= 5.x",
+        "@mui/styled-engine": ">= 5.x",
+        "@mui/x-date-pickers": ">= 5.x",
+        "dayjs": ">= 1.11.7",
         "react": "16.8.0 || >=17.x",
         "react-dom": "16.8.0 || >=17.x"
     },
